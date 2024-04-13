@@ -6,7 +6,6 @@ import { Chessboard } from "react-chessboard";
 import { Chess } from "chess.js";
 
 function App() {
-  var board = null;
   const [game, setGame] = useState(new Chess());
   const [firstMove, setFirstMove] = useState(0);
   const [selectedSquare, setSelectedSquare] = useState("a1");
@@ -15,6 +14,7 @@ function App() {
   const [text, setText] = useState(null);
   const selectedSquareRef = useRef(selectedSquare);
   const [previousSelectedSquare, setPreviousSelectedSquare] = useState("a1");
+
   const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
@@ -272,6 +272,8 @@ function App() {
     7,
     8,
   ];
+
+  // Movimiento por coordenadas
   useEffect(() => {
     const handleKeyDown = (event) => {
       // Aquí capturarás la entrada del teclado
@@ -337,6 +339,7 @@ function App() {
     };
   }, []);
 
+  // Casilla seleccionada y movimiento realizado por el comando de voz
   useEffect(() => {
     if (text !== null) {
       if (isRecording) {
@@ -404,6 +407,7 @@ function App() {
     setPreviousSelectedSquare(selectedSquare);
   }, [selectedSquare]);
   function handleKeyDown(event) {
+    console.log("el select actual es: ", selectedSquareRef.current);
     const currentSquare = selectedSquareRef.current;
     let nextSquare = currentSquare;
 
@@ -420,6 +424,10 @@ function App() {
         break;
       case "ArrowRight":
         nextSquare = getNextSquare(currentSquare, "right");
+        break;
+      case "r":
+        leerText("Comando de voz activado");
+        startRecording();
         break;
       default:
         return; // Ignora otros eventos de teclado
@@ -530,6 +538,7 @@ function App() {
           customDropSquareStyle={{
             boxShadow: "inset 0 0 1px 6px rgba(255,0,0,0.75)",
           }}
+          customNotationStyle={{ fontSize: "13px", color: "black" }}
         />
         <button
           className="btn-recorde"
