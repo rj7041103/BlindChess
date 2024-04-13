@@ -1,0 +1,5 @@
+To operate this program you will have to use the keyboard keys as follows a1,b1,c1.....h1, in case you want to play only with chess board coordinates.
+
+You can also use the voice command by selecting the boxes with the keyboard direction keys, which are the right, left, up and down arrows found on the keyboard. Once it is selected, the program will say the piece that was selected in the current box in which it is located. If the box is empty of a piece, the program will say that it is empty.
+
+Once the piece has been chosen, the voice command is activated using the record button or the r key and it will begin to recognize the voice of the user who will have to say the destination position in coordinates so that the piece can be moved, in case If the movement is not valid, it will say that the movement in the directions of origin, which was the selected square, and the destination square, which was the square or position within the board said by the user, is invalid and will move the piece back to its original place. denuvo origin
