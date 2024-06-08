@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import "./app.css";
 import { Chessboard } from "react-chessboard";
 import { Chess } from "chess.js";
@@ -406,6 +405,7 @@ function App() {
     console.log("selected: ", selectedSquare);
     setPreviousSelectedSquare(selectedSquare);
   }, [selectedSquare]);
+
   function handleKeyDown(event) {
     console.log("el select actual es: ", selectedSquareRef.current);
     const currentSquare = selectedSquareRef.current;
